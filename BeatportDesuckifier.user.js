@@ -19,7 +19,7 @@ jQuery(document).ready(function ($)
         var release = splits[splits.length - 1];
         //deprecated with changes to beatport website March 2012
         // var queueReleaseAnchor = '<a href="http://www.beatport.com' + href + '" data-play="release:' + release + '" class="btn-queue evtQueue jsOnly">queue release</a>';
-        var queueReleaseAnchor = '<span class="play-queue"><span class="btn-queue" data-item-id="' + release + '" data-item-type="release" data-player-action="queue">queue release</span></span>';
+        var queueReleaseAnchor = '<span class="play-queue"><span class="btn-queue" data-item-id="' + release + '" data-item-type="release" data-player-action="queue" style="height:22px;width:50px;border-radius:20px;line-height:.9;color:white;font-size:11px">queue<br/>release</span></span>';
         var html = $(this).find(".playColumn").html($(this).find(".playColumn").html() + queueReleaseAnchor);
     });
 });

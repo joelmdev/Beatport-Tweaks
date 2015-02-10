@@ -49,9 +49,9 @@ $.noConflict();
                 typeof window.Beatport.Player.playableRegistry.attributes !== 'undefined') {
                 console.log("in thar!");
                 window.Beatport.Player.playableRegistry.attributes = window.traxx.attributes;
+                $(".bucket.tracks.standard-interior-tracks").prepend('<a class="icon icon-add-queue playable-queue-all" ' + window.releaseTracks + ' href="#">queue all tracks from all releases</a>');
+                console.log("wrapping up!");
                 clearInterval(interval);
             }
-        }, 3000);
-    console.log("wrapping up!");
-    $(".bucket.tracks.standard-interior-tracks").prepend('<a class="icon icon-add-queue playable-queue-all" ' + window.releaseTracks + ' href="#">queue all tracks from all releases</a>');
+        }, 250);
 })(jQuery);

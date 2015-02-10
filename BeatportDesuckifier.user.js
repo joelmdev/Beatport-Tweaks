@@ -53,5 +53,5 @@ $.noConflict();
             }
         }, 3000);
     console.log("wrapping up!");
-    $(".bucket.tracks.standard-interior-tracks").prepend('<a class="icon icon-add-queue playable-queue-all" ' + window.releaseTracks + ' href="#">add all release tracks</a>');
+    $(".bucket.tracks.standard-interior-tracks").prepend('<a class="icon icon-add-queue playable-queue-all" ' + window.releaseTracks + ' href="#">queue all tracks from all releases</a>');
 })(jQuery);

@@ -8,6 +8,8 @@
 // ==/UserScript==
 $.noConflict();
 (function($) {
+    $('.queue-drop').css('height', window.innerHeight*.9 + 'px');
+    $('.queue').css('height', '97%');
     console.log("getting started!");
     window.traxx;
     while (!window.traxx) {

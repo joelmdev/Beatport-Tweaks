@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name        Beatport Desuckifier Pro
+// @name        Beatport Tweaks Pro
 // @namespace   lowfrequencyresearch
 // @description	        Adds a "queue all tracks from all releases" button to the top of My Beatport
 // @require       https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js

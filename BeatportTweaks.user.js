@@ -1,14 +1,13 @@
 // ==UserScript==
-// @name        Beatport Tweaks Pro
-// @namespace   lowfrequencyresearch
-// @description	        Adds a "queue all tracks from all releases" button to the top of My Beatport
-// @require       https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js
-// @include     https://pro.beatport.com/my-beatport*
-// @grant       none
+// @name Beatport Tweaks Pro
+// @namespace lowfrequencyresearch
+// @description Adds a "queue all tracks from all releases" button to the top of My Beatport
+// @require https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js
+// @include https://pro.beatport.com/my-beatport*
+// @grant none
 // ==/UserScript==
-$.noConflict();
 (function($) {
-    $('.queue-drop').css('height', window.innerHeight*.9 + 'px');
+    $('.queue-drop').css('height', window.innerHeight * .9 + 'px');
     $('.queue').css('height', '97%');
     console.log("getting started!");
     window.traxx;
@@ -34,7 +33,7 @@ $.noConflict();
                         window.traxx.attributes[track.id] = track;
                     });
                 },
-                error: function(data) { alert("Fail!   " + JSON.stringify(data)); },
+                error: function(data) { alert("Fail! " + JSON.stringify(data)); },
                 data: {},
                 async: false
             });
@@ -42,18 +41,17 @@ $.noConflict();
     });
     window.releaseTracks += "'";
     console.log(window.releaseTracks);
-    
-        var interval = setInterval(function() {
-            console.log("not yet");
-            if (typeof window.Beatport !== 'undefined' &&
-                typeof window.Beatport.Player !== 'undefined' &&
-                typeof window.Beatport.Player.playableRegistry !== 'undefined' &&
-                typeof window.Beatport.Player.playableRegistry.attributes !== 'undefined') {
-                console.log("in thar!");
-                window.Beatport.Player.playableRegistry.attributes = window.traxx.attributes;
-                $(".bucket.tracks.standard-interior-tracks").prepend('<a class="icon icon-add-queue playable-queue-all" ' + window.releaseTracks + ' href="#">queue all tracks from all releases</a>');
-                console.log("wrapping up!");
-                clearInterval(interval);
-            }
-        }, 250);
+    var interval = setInterval(function() {
+        console.log("not yet");
+        if (typeof window.Beatport !== 'undefined' &&
+            typeof window.Beatport.Player !== 'undefined' &&
+            typeof window.Beatport.Player.playableRegistry !== 'undefined' &&
+            typeof window.Beatport.Player.playableRegistry.attributes !== 'undefined') {
+            console.log("in thar!");
+            window.Beatport.Player.playableRegistry.attributes = window.traxx.attributes;
+            $(".bucket.tracks.standard-interior-tracks").prepend('<a class="icon icon-add-queue playable-queue-all" ' + window.releaseTracks + ' href="#">queue all tracks from all releases</a>');
+            console.log("wrapping up!");
+            clearInterval(interval);
+        }
+    }, 250);
 })(jQuery);

@@ -2,11 +2,11 @@
 // @name Beatport Tweaks Pro
 // @namespace lowfrequencyresearch
 // @description Adds a "queue all tracks from all releases" button to the top of My Beatport
-// @require https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js
 // @include https://pro.beatport.com/my-beatport*
 // @grant none
 // ==/UserScript==
-(function($) {
+
+function loadTraxx($) {
     $('.queue-drop').css('height', window.innerHeight * .9 + 'px');
     $('.queue').css('height', '97%');
     console.log("getting started!");
@@ -54,4 +54,17 @@
             clearInterval(interval);
         }
     }, 250);
-})(jQuery);
+}
+
+function waitForJquery() {
+    console.log('waiting for jquery to load')
+    if (typeof window.jQuery == 'undefined') {
+        console.log('not yet loaded')
+        window.setTimeout(waitForJquery, 1000);
+    }
+    else {
+        loadTraxx(window.jQuery);
+    }
+}
+
+waitForJquery();

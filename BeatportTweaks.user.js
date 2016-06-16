@@ -2,7 +2,7 @@
 // @name Beatport Tweaks Pro
 // @namespace lowfrequencyresearch
 // @description Adds a "queue all tracks from all releases" button to the top of My Beatport
-// @include https://pro.beatport.com/my-beatport*
+// @include https://beatport.com/my-beatport*
 // @grant none
 // ==/UserScript==
 

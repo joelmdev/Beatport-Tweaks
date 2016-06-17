@@ -4,12 +4,10 @@
 // @description Adds a "queue all tracks from all releases" button to the top of My Beatport
 // @include /^https:\/\/(www\.)?beatport\.com\/my-beatport.*$/
 // @grant none
-// @version 0.3
+// @version 0.4
 // ==/UserScript==
 
-function loadTraxx($) {
-    $('.queue-drop').css('height', window.innerHeight * .9 + 'px');
-    $('.queue').css('height', '97%');
+(function($) {
     console.log("getting started!");
     window.traxx;
     while (!window.traxx) {
@@ -52,20 +50,9 @@ function loadTraxx($) {
             window.Beatport.Player.playableRegistry.attributes = window.traxx.attributes;
             $(".bucket.tracks.standard-interior-tracks").prepend('<a class="icon icon-add-queue playable-queue-all" ' + window.releaseTracks + ' href="#">queue all tracks from all releases</a>');
             console.log("wrapping up!");
+
             clearInterval(interval);
         }
     }, 250);
-}
+})(unsafeWindow.jQuery);
 
-function waitForJquery() {
-    console.log('waiting for jquery to load')
-    if (typeof window.jQuery == 'undefined') {
-        console.log('not yet loaded')
-        window.setTimeout(waitForJquery, 1000);
-    }
-    else {
-        loadTraxx(window.jQuery);
-    }
-}
-
-waitForJquery();
